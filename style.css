@@ -1,0 +1,26 @@
+.container {
+  width: 90vw;
+  background-color: rgb(38, 81, 119);
+  margin: 2.5rem auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 22%;
+  height: 600px;
+  background-color: rgb(255, 248, 211);
+  margin: 10px;
+  color: rgb(138, 191, 216);
+  border-radius: 20px;
+  align-items: center;
+}
+
+.title__website {
+  font-size: 10rem;
+  font-weight: 150;
+  background-color: rgb(38, 81, 119);
+  text-decoration-color: antiquewhite;
+  margin: 5rem auto;
+}
