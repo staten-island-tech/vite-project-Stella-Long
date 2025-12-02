@@ -1,4 +1,14 @@
-:root {
+.card {
+  width: 22%;
+  height: 600px;
+  background-color: rgb(255, 248, 211);
+  margin: 10px;
+  color: rgb(138, 191, 216);
+  border-radius: 20px;
+  align-items: center;
+}
+
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -94,3 +104,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+ */

@@ -82,20 +82,20 @@ const pokemonCards = [
   },
 ];
 
-function inject(item) {
+function inject(card) {
   const container = document.querySelector(".container");
   container.insertAdjacentHTML(
     "afterbegin",
-    `<div class="card" data-series = "${item.series}">
+    `<div class="card" data-series = "${card.series}">
         <img
           class="img"
-          src="${item.img}"
-          alt="Twinkle Twinkle Blindboxes"
+          src="${card.img}"
+          alt="Pokemon Cards"
         />
-        <h2 class="product__category">${item.series}</h2>
-        <h3 class="product__name">${item.name}</h3>
-        <p class="product__origin">${item.origin}</p>
+        <h2 class="card_series">${card.series}</h2>
+        <h3 class="card_name">${card.name}</h3>
+        <p class="card_origin">${card.origin}</p>
       </div>`
   );
 }
-blindboxes.forEach((product) => inject(product));
+pokemonCards.forEach((card) => inject(card));
