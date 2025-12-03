@@ -1,3 +1,11 @@
+.container {
+  width: 90vw;
+  background-color: rgb(38, 81, 119);
+  margin: 2.5rem auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 .card {
   width: 22%;
   height: 600px;

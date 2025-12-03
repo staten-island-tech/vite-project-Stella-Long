@@ -1,7 +1,6 @@
 import "./style.css";
 import javascriptLogo from "./javascript.svg";
 import viteLogo from "/vite.svg";
-import { setupCounter } from "./main.js";
 
 document.querySelector("#app").innerHTML = `
   <div>
@@ -11,16 +10,14 @@ document.querySelector("#app").innerHTML = `
     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
     </a>
-    <h1>Hello Vite!</h1>
+    <h1>My Pokemon!</h1>
+    <div class="container">
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
+    </div>
   </div>
 `;
-
 setupCounter(document.querySelector("#counter"));
 
 const pokemonCards = [
@@ -95,7 +92,7 @@ function inject(card) {
         <h2 class="card_series">${card.series}</h2>
         <h3 class="card_name">${card.name}</h3>
         <p class="card_origin">${card.origin}</p>
-      </div>`
+    </div>`
   );
 }
 pokemonCards.forEach((card) => inject(card));
