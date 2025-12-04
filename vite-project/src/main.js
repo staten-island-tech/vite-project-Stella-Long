@@ -11,14 +11,12 @@ document.querySelector("#app").innerHTML = `
       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
     </a>
     <h1>My Pokemon!</h1>
-    <div class="container">
-    <div class="card">
+  <div class="container">
+    <class="card">
       <button id="counter" type="button"></button>
-    </div>
     </div>
   </div>
 `;
-setupCounter(document.querySelector("#counter"));
 
 const pokemonCards = [
   {
@@ -79,20 +77,39 @@ const pokemonCards = [
   },
 ];
 
-function inject(card) {
+function inject(item) {
   const container = document.querySelector(".container");
   container.insertAdjacentHTML(
     "afterbegin",
-    `<div class="card" data-series = "${card.series}">
+    `<div class="card" data-series = "${item.series}">
         <img
           class="img"
-          src="${card.img}"
+          src="${item.img}"
           alt="Pokemon Cards"
         />
-        <h2 class="card_series">${card.series}</h2>
-        <h3 class="card_name">${card.name}</h3>
-        <p class="card_origin">${card.origin}</p>
+        <h2 class="card_name">${item.name}</h2>
+        <h3 class="card_series">${item.series}</h3>
+
+        <h3 class="card_origin">${item.origin}</h3>
     </div>`
   );
 }
-pokemonCards.forEach((card) => inject(card));
+pokemonCards.forEach((item) => inject(item));
+
+function filterBySeries(series) {
+  document.querySelectorAll(".card").forEach((card) => {
+    const cardSeries = card.getAttribute("data-series");
+    card.style.display =
+      cardSeries === series || series === "all" ? "inline-block" : "none";
+  });
+}
+
+document
+  .querySelector(".a")
+  .addEventListener("click", () => filterBySeries("Gallery"));
+document
+  .querySelector(".b")
+  .addEventListener("click", () => filterBySeries(""));
+document
+  .querySelector(".c")
+  .addEventListener("click", () => filterBySeries(""));
