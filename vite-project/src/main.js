@@ -13,7 +13,6 @@ document.querySelector("#app").innerHTML = `
     <h1>My Pokemon!</h1>
   <div class="container">
     <class="card">
-      <button id="counter" type="button"></button>
     </div>
   </div>
 `;
@@ -27,18 +26,11 @@ const pokemonCards = [
     img: "https://tcgplayer-cdn.tcgplayer.com/product/226432_in_1000x1000.jpg",
   },
   {
-    name: "Pikachu VMAX (Rainbow Rare Full Art)",
+    name: "Pikachu VMAX Rainbow Rare",
     character: "Pikachu",
     series: "Vivid Voltage",
     origin: "English",
     img: "https://storage.googleapis.com/images.pricecharting.com/b4253710ee077b36198a6ad560b53302d045026a06588c8aa0b24012ecbc5872/1600.jpg",
-  },
-  {
-    name: "Pikachu VMAX",
-    character: "Pikachu",
-    series: "SWSH Black Star Promos",
-    origin: "English",
-    img: "https://cdn11.bigcommerce.com/s-ua4dd/images/stencil/1280w/products/77093/182556/SWSH286_hires__88323.1683813817.png",
   },
   {
     name: "Pikachu VMAX (Secret Rare)",
@@ -47,6 +39,14 @@ const pokemonCards = [
     origin: "English",
     img: "https://tcgplayer-cdn.tcgplayer.com/product/284302_in_1000x1000.jpg",
   },
+  {
+    name: "Pikachu VMAX",
+    character: "Pikachu",
+    series: "SWSH Black Star Promos",
+    origin: "English",
+    img: "https://cdn11.bigcommerce.com/s-ua4dd/images/stencil/1280w/products/77093/182556/SWSH286_hires__88323.1683813817.png",
+  },
+
   {
     name: "Flying Pikachu VMAX",
     character: "Pikachu",
@@ -69,7 +69,7 @@ const pokemonCards = [
     img: "https://m.media-amazon.com/images/I/710ugsdR7BL._AC_UF894,1000_QL80_.jpg",
   },
   {
-    name: "Eevee 188/167 (Illustration Rare - Full Art - Alternate)",
+    name: "Eevee Full Art",
     character: "Eevee",
     series: "Twilight Masquerade",
     origin: "English",
@@ -96,9 +96,9 @@ function inject(item) {
 }
 pokemonCards.forEach((item) => inject(item));
 
-function filterBySeries(series) {
+/* function filterByCharacter(series) {
   document.querySelectorAll(".card").forEach((card) => {
-    const cardSeries = card.getAttribute("data-series");
+    const cardSeries = card.getAttribute("data-character");
     card.style.display =
       cardSeries === series || series === "all" ? "inline-block" : "none";
   });
@@ -106,10 +106,10 @@ function filterBySeries(series) {
 
 document
   .querySelector(".a")
-  .addEventListener("click", () => filterBySeries("Gallery"));
+  .addEventListener("click", () => filterByCharacter("Gallery"));
 document
   .querySelector(".b")
-  .addEventListener("click", () => filterBySeries(""));
+  .addEventListener("click", () => filterByCharacter("Eevee"));
 document
   .querySelector(".c")
-  .addEventListener("click", () => filterBySeries(""));
+  .addEventListener("click", () => filterByCharacter("Pikachu")); */
