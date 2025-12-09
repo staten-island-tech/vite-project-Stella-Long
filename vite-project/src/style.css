@@ -1,13 +1,7 @@
-/* :root {
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-}
- */
 :root {
-  --light-white: #ffffff;
-  --dark-white: #f5f5f5;
-  --light-black: #2c2929;
+  --light-white: #fffdfd;
+  --dark-white: #e9e5e5;
+  --light-black: #353232;
   --dark-black: #242424;
 
   /* Intentions */
@@ -21,8 +15,8 @@
 }
 
 .dark {
-  --primary: var(--light-black);
-  --secondary: var(--dark-black);
+  --primary: var(--dark-black);
+  --secondary: var(--light-black);
 }
 
 .hero {
@@ -48,27 +42,24 @@ body {
   width: 90vw;
   margin: 2.5rem auto;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  align-items: center;
-  color: var(--secondary);
+  gap: 4rem;
+  justify-content: center;
 }
 
 .card {
   width: 22%;
   height: 700px;
   background-color: var(--secondary);
-  margin: 10px;
   color: var(--primary);
   border-radius: 20px;
-  align-items: center;
 }
 
 h1 {
   font-size: 10rem;
   font-weight: 125;
   color: var(--secondary);
-  align-items: center;
+  text-align: center;
 }
 
 .img {
@@ -81,7 +72,7 @@ h1 {
   font-weight: 100;
   margin-top: 1rem;
   color: var(--primary);
-  align-items: center;
+  text-align: center;
 }
 
 .card_series {
@@ -89,7 +80,7 @@ h1 {
   font-weight: 100;
   margin-top: 1rem;
   color: var(--primary);
-  align-items: center;
+  text-align: center;
 }
 
 .card_origin {
@@ -97,25 +88,23 @@ h1 {
   font-weight: 100;
   margin-top: 1rem;
   color: var(--primary);
-  align-items: center;
-}
-/* 
-.filter button {
-  font-size: 1.5rem;
-  font-weight: 100;
-  background-color: #2c2929;
-  color: rgb(255, 255, 255);
-  font-family: "Palette Mosaic", system-ui;
-  padding: 10px;
-  line-height: 1rem;
-  margin: 15px 15px 0 0;
-  border-radius: 1rem;
-  border: 1px solid #2c2929;
-  cursor: pointer;
-  transition: 0.3s;
+  text-align: center;
 }
 
-.filter button:hover {
-  background-color: #2c2929;
+.btn {
+  padding: 0.7rem 1.4rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-size: 1rem;
+  font-weight: 1;
+  font-family: "Palette Mosaic", system-ui;
 }
- */
+
+.btn:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+}

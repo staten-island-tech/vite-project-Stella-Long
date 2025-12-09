@@ -4,10 +4,14 @@ import viteLogo from "/vite.svg";
 
 document.querySelector("#app").innerHTML = `
   <div>
+  <class="card">  
     <h1>My Pokemon!</h1>
-    <div class="container">
-    <class="card">
-    </div>
+
+    <button id="MyPokemon">Add to "My Pokemon"</button>
+    <button id="WantPokemon">Add to "Want Pokemon"</button>
+
+    <div class="container"></div>
+
   </div>
 `;
 
@@ -87,7 +91,46 @@ function inject(item) {
     </div>`
   );
 }
+
+const uploadForm = document.getElementById("uploadForm");
+
+uploadForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const fileInput = uploadForm.querySelector('input[type="file"]');
+  const name = document.getElementById("uploadName").value;
+  const character = document.getElementById("uploadCharacter").value;
+  const series = document.getElementById("uploadSeries").value;
+  const origin = document.getElementById("uploadOrigin").value;
+  const file = fileInput.files[0];
+  if (!file) return alert("Please select an image");
+  const imgUrl = URL.createObjectURL(file);
+  const newCard = {
+    name: name,
+    character: character,
+    series: series,
+    origin: origin,
+    img: imgUrl,
+    alt: name,
+    category: ["User Upload"],
+  };
+  card.push(newCard);
+  inject(newCard);
+  enableModal();
+  saveUploads();
+  uploadForm.reset();
+});
+
 pokemonCards.forEach((item) => inject(item));
+
+document.querySelector(".btn").addEventListener("click", function () {
+  if (document.body.classList.contains("light")) {
+    document.body.classList.add("dark");
+    document.body.classList.remove("light");
+  } else {
+    document.body.classList.add("light");
+    document.body.classList.remove("dark");
+  }
+});
 
 /* function filterByCharacter(series) {
   document.querySelectorAll(".card").forEach((card) => {
@@ -106,13 +149,3 @@ document
 document
   .querySelector(".c")
   .addEventListener("click", () => filterByCharacter("Pikachu")); */
-
-document.querySelector(".btn").addEventListener("click", function () {
-  if (document.body.classList.contains("light")) {
-    document.body.classList.add("dark");
-    document.body.classList.remove("light");
-  } else {
-    document.body.classList.add("light");
-    document.body.classList.remove("dark");
-  }
-});
