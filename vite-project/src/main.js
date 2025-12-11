@@ -86,10 +86,21 @@ function inject(item) {
         />
         <h2 class="card_name">${item.name}</h2>
         <h3 class="card_series">${item.series}</h3>
-
         <h3 class="card_origin">${item.origin}</h3>
+        <button class = "a">My Pokemon</button>
+        <button class = "b">Want Pokemon</button>
     </div>`
   );
+  const card = container.querySelector(".card");
+  const haveButton = card.querySelector(".a");
+  const wantButton = card.querySelector(".b");
+
+  haveButton.addEventListener("click", () => {
+    card.classList.add("Have Pokemon");
+    card.classList.remove("Want Pokemon");
+  })
+
+  wantButton.addEventListener("click", ())
 }
 
 const uploadForm = document.getElementById("uploadForm");
