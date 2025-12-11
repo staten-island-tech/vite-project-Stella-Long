@@ -3,8 +3,7 @@ import javascriptLogo from "./javascript.svg";
 import viteLogo from "/vite.svg";
 
 document.querySelector("#app").innerHTML = `
-  <div>
-  <class="card">  
+  <div class="card">  
     <h1>My Pokemon!</h1>
 
     <button id="MyPokemon">Add to "My Pokemon"</button>
@@ -74,7 +73,8 @@ const pokemonCards = [
   },
 ];
 
-function inject(item) {
+//cards
+function show(item) {
   const container = document.querySelector(".container");
   container.insertAdjacentHTML(
     "afterbegin",
@@ -98,41 +98,61 @@ function inject(item) {
   haveButton.addEventListener("click", () => {
     card.classList.add("Have Pokemon");
     card.classList.remove("Want Pokemon");
-  })
+  });
 
-  wantButton.addEventListener("click", ())
+  wantButton.addEventListener("click", () => {
+    card.classList.add("Have Pokemon");
+    card.classList.remove("Want Pokemon");
+  });
 }
+pokemonCards.forEach((item) => show(item));
 
-const uploadForm = document.getElementById("uploadForm");
+function filter(input) {
+  const cards = document.querySelectorAll(".card");
+  const search = input.toLowerCase();
+  cards.forEach((card) => {
+    const name = card.querySelector(".card_name").textContent.toLowerCase();
+    const character = card
+      .querySelector(".card_character")
+      .textContent.toLowerCase();
+    const series = card.querySelector(".card_series").textContent.toLowerCase();
+    const origin = card.querySelector(".card_origin").textContent.toLowerCase();
+    if (
+      name.includes(search) ||
+      character.includes(search) ||
+      series.includes(search) ||
+      origin.includes(search)
+    ) {
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+document.querySelector(".searchBar").addEventListener("click", () => {
+  const input = document.querySelector(".search input").value;
+  filter(input);
+});
 
-uploadForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  const fileInput = uploadForm.querySelector('input[type="file"]');
-  const name = document.getElementById("uploadName").value;
-  const character = document.getElementById("uploadCharacter").value;
-  const series = document.getElementById("uploadSeries").value;
-  const origin = document.getElementById("uploadOrigin").value;
-  const file = fileInput.files[0];
-  if (!file) return alert("Please select an image");
-  const imgUrl = URL.createObjectURL(file);
+//upload
+function upload(card) {
+  card.preventDefault();
+  const name = document.querySelector("#cardname").value;
+  const character = document.querySelector("#cardcharacter").value;
+  const series = document.querySelector("#cardseries").value;
+  const origin = document.querySelector("#cardorigin").value;
+  const img = document.querySelector("#cardimg").value;
   const newCard = {
     name: name,
     character: character,
     series: series,
     origin: origin,
-    img: imgUrl,
-    alt: name,
-    category: ["User Upload"],
+    img: img,
   };
-  card.push(newCard);
-  inject(newCard);
-  enableModal();
-  saveUploads();
-  uploadForm.reset();
-});
+  show(newCard);
+}
+document.getElementById("upload").addEventListener("submit", upload);
 
-pokemonCards.forEach((item) => inject(item));
-
+//dark and light mode
 document.querySelector(".btn").addEventListener("click", function () {
   if (document.body.classList.contains("light")) {
     document.body.classList.add("dark");
@@ -142,6 +162,38 @@ document.querySelector(".btn").addEventListener("click", function () {
     document.body.classList.remove("dark");
   }
 });
+
+function all() {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    card.style.display = "inline-block";
+  });
+}
+document.querySelector(".all").addEventListener("click", all);
+
+function showHave() {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    if (card.classList.contains("have-pokemon")) {
+      card.style.display = "inline-block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+document.querySelector(".have").addEventListener("click", showHave);
+
+function showWant() {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    if (card.classList.contains("want-pokemon")) {
+      card.style.display = "inline-block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+document.querySelector(".want").addEventListener("click", showWant);
 
 /* function filterByCharacter(series) {
   document.querySelectorAll(".card").forEach((card) => {
