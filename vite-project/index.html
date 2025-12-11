@@ -5,35 +5,46 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Pokemon</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <body class="cool">
-        <button class="btn">Light Mode / Dark Mode</button>
-      </div>
-    </body>
-        <div class="upload__section">
-        <h2>Upload Image</h2>
-        <form id="uploadForm">
-            <input type="file" name="image" required />
-            <input type="text" id="uploadName" placeholder="Name" required />
-            <input type="text" id="uploadCharacter" placeholder="Character" required />
-            <input type="text" id="uploadSeries" placeholder="Series" required />
-            <input type="text" id="uploadOrigin" placeholder="Origin" required />
-            <button type="submit">Upload</button>
-        </form>
+
+  <body class="cool">
+    <button class="btn">Light Mode / Dark Mode</button>
+    <input class="search" placeholder="Search..." />
+    <button class="searchBar">Search</button>
+    <div class="upload__section">
+      <h2>Upload Card</h2>
+      <form id="upload">
+        <input type="text" id="cardname" placeholder="Name" required />
+        <input
+          type="text"
+          id="cardcharacter"
+          placeholder="Character"
+          required
+        />
+        <input type="text" id="cardseries" placeholder="Series" required />
+        <input type="text" id="cardorigin" placeholder="Origin" required />
+        <input type="text" id="cardimg" placeholder="Image URL" required />
+        <button type="submit">Upload</button>
+      </form>
     </div>
 
     <div id="app"></div>
+
+    <div class="filter-buttons">
+      <button class="all">Show All</button>
+      <button class="have">My Pokemon</button>
+      <button class="want">Want Pokemon</button>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <body>
-      <div id="item-list"></div>
-    </body>
   </body>
 </html>

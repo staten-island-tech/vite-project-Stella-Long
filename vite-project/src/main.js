@@ -5,12 +5,15 @@ import viteLogo from "/vite.svg";
 document.querySelector("#app").innerHTML = `
   <div class="card">  
     <h1>My Pokemon!</h1>
+    <input class="search" placeholder="Search...">
+    <button class="searchBar">Search</button>
 
-    <button id="MyPokemon">Add to "My Pokemon"</button>
-    <button id="WantPokemon">Add to "Want Pokemon"</button>
-
+    <div class="filters">
+      <button class="all">All</button>
+      <button class="have">Have</button>
+      <button class="want">Want</button>
+    </div>
     <div class="container"></div>
-
   </div>
 `;
 
@@ -87,22 +90,23 @@ function show(item) {
         <h2 class="card_name">${item.name}</h2>
         <h3 class="card_series">${item.series}</h3>
         <h3 class="card_origin">${item.origin}</h3>
-        <button class = "a">My Pokemon</button>
-        <button class = "b">Want Pokemon</button>
+
+        <button class = "haveBtn">My Pokemon</button>
+        <button class = "wantBtn">Want Pokemon</button>
     </div>`
   );
-  const card = container.querySelector(".card");
-  const haveButton = card.querySelector(".a");
-  const wantButton = card.querySelector(".b");
+  const card = container.firstElementChild;
+  const haveButton = card.querySelector(".haveBtn");
+  const wantButton = card.querySelector(".wantBtn");
 
   haveButton.addEventListener("click", () => {
-    card.classList.add("Have Pokemon");
-    card.classList.remove("Want Pokemon");
+    card.classList.add("have-pokemon");
+    card.classList.remove("want-pokemon");
   });
 
   wantButton.addEventListener("click", () => {
-    card.classList.add("Have Pokemon");
-    card.classList.remove("Want Pokemon");
+    card.classList.add("have-pokemon");
+    card.classList.remove("want-pokemon");
   });
 }
 pokemonCards.forEach((item) => show(item));
@@ -112,14 +116,10 @@ function filter(input) {
   const search = input.toLowerCase();
   cards.forEach((card) => {
     const name = card.querySelector(".card_name").textContent.toLowerCase();
-    const character = card
-      .querySelector(".card_character")
-      .textContent.toLowerCase();
     const series = card.querySelector(".card_series").textContent.toLowerCase();
     const origin = card.querySelector(".card_origin").textContent.toLowerCase();
     if (
       name.includes(search) ||
-      character.includes(search) ||
       series.includes(search) ||
       origin.includes(search)
     ) {
@@ -194,21 +194,3 @@ function showWant() {
   });
 }
 document.querySelector(".want").addEventListener("click", showWant);
-
-/* function filterByCharacter(series) {
-  document.querySelectorAll(".card").forEach((card) => {
-    const cardSeries = card.getAttribute("data-character");
-    card.style.display =
-      cardSeries === series || series === "all" ? "inline-block" : "none";
-  });
-}
-
-document
-  .querySelector(".a")
-  .addEventListener("click", () => filterByCharacter("Gallery"));
-document
-  .querySelector(".b")
-  .addEventListener("click", () => filterByCharacter("Eevee"));
-document
-  .querySelector(".c")
-  .addEventListener("click", () => filterByCharacter("Pikachu")); */
