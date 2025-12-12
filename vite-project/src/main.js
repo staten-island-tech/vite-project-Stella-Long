@@ -1,19 +1,16 @@
 import "./style.css";
-import javascriptLogo from "./javascript.svg";
-import viteLogo from "/vite.svg";
 
-document.querySelector("#app").innerHTML = `
-  <div class="card">  
+document.querySelector(".container").innerHTML = `<div class="container">
     <h1>My Pokemon!</h1>
-    <input class="search" placeholder="Search...">
-    <button class="searchBar">Search</button>
-
-    <div class="filters">
-      <button class="all">All</button>
-      <button class="have">Have</button>
-      <button class="want">Want</button>
+    <div class="search-bar">
+      <input class="search" placeholder="Search...">
+      <button class="searchBar">Search</button>
     </div>
-    <div class="container"></div>
+    <div class="filter-buttons">
+      <button class="all">Show All</button>
+      <button class="have">My Pokemon</button>
+      <button class="want">Want Pokemon</button>
+    </div>
   </div>
 `;
 
@@ -80,7 +77,7 @@ const pokemonCards = [
 function show(item) {
   const container = document.querySelector(".container");
   container.insertAdjacentHTML(
-    "afterbegin",
+    "beforeend",
     `<div class="card" data-series = "${item.series}">
         <img
           class="img"
@@ -95,7 +92,7 @@ function show(item) {
         <button class = "wantBtn">Want Pokemon</button>
     </div>`
   );
-  const card = container.firstElementChild;
+  const card = container.querySelector(".card");
   const haveButton = card.querySelector(".haveBtn");
   const wantButton = card.querySelector(".wantBtn");
 
@@ -123,6 +120,7 @@ function filter(input) {
       series.includes(search) ||
       origin.includes(search)
     ) {
+      card.style.display = "inline-block";
     } else {
       card.style.display = "none";
     }
