@@ -1,19 +1,5 @@
 import "./style.css";
 
-document.querySelector(".container").innerHTML = `<div class="container">
-    <h1>My Pokemon!</h1>
-    <div class="search-bar">
-      <input class="search" placeholder="Search...">
-      <button class="searchBar">Search</button>
-    </div>
-    <div class="filter-buttons">
-      <button class="all">Show All</button>
-      <button class="have">My Pokemon</button>
-      <button class="want">Want Pokemon</button>
-    </div>
-  </div>
-`;
-
 const pokemonCards = [
   {
     name: "Flying Pikachu VMAX",

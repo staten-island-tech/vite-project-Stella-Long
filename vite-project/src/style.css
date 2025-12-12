@@ -4,7 +4,6 @@
   --light-black: #353232;
   --dark-black: #242424;
 
-  /* Intentions */
   --primary: var(--dark-white);
   --secondary: var(--light-white);
 }
@@ -43,7 +42,7 @@ body {
   margin: 2.5rem auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 4rem;
+  gap: 3rem;
   justify-content: center;
 }
 
@@ -107,4 +106,50 @@ h1 {
 .btn:hover {
   background-color: var(--primary);
   color: var(--secondary);
+}
+
+.haveBtn {
+  background-color: var(--secondary);
+  font-family: "Palette Mosaic", system-ui;
+  border-radius: 5px;
+}
+
+.haveBtn:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+.wantBtn {
+  background-color: var(--secondary);
+  font-family: "Palette Mosaic", system-ui;
+  border-radius: 5px;
+}
+
+.wantBtn:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 125;
+  color: var(--secondary);
+  text-align: center;
+  font-family: "Palette Mosaic", system-ui;
+}
+
+.search {
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  margin-right: 1rem;
+  font-family: "Palette Mosaic", system-ui;
+}
+
+.searchBar {
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  margin-right: 1rem;
+  font-family: "Palette Mosaic", system-ui;
 }

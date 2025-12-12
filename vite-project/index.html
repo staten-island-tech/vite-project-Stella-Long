@@ -16,7 +16,12 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="cool">
-    <button class="btn">Light Mode / Dark Mode</button>
+    <div class="dark-light-mode">
+      <button class="btn">Light Mode / Dark Mode</button>
+    </div>
+    <div class="header">
+      <h1>My Pokemon!</h1>
+    </div>
     <div class="upload__section">
       <h2>Upload Card</h2>
       <form id="upload">
@@ -33,14 +38,18 @@
         <button type="submit">Upload</button>
       </form>
     </div>
-
-    <div class="container"></div>
-
+    <div class="search-bar">
+      <h2>Search For Card</h2>
+      <input class="search" placeholder="Search..." />
+      <button class="searchBar">Search</button>
+    </div>
     <div class="filter-buttons">
       <button class="all">Show All</button>
       <button class="have">My Pokemon</button>
       <button class="want">Want Pokemon</button>
     </div>
+
+    <div class="container"></div>
 
     <script type="module" src="/src/main.js"></script>
   </body>
