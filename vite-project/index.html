@@ -2,54 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Pokemon</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap"
       rel="stylesheet"
     />
-
-    <link rel="stylesheet" href="style.css" />
+    <title>My Pokemon</title>
   </head>
-  <body class="cool">
-    <div class="dark-light-mode">
-      <button class="btn">Light Mode / Dark Mode</button>
-    </div>
-    <div class="header">
-      <h1>My Pokemon!</h1>
-    </div>
-    <div class="upload__section">
-      <h2>Upload Card</h2>
-      <form id="upload">
-        <input type="text" id="cardname" placeholder="Name" required />
-        <input
-          type="text"
-          id="cardcharacter"
-          placeholder="Character"
-          required
-        />
-        <input type="text" id="cardseries" placeholder="Series" required />
-        <input type="text" id="cardorigin" placeholder="Origin" required />
-        <input type="text" id="cardimg" placeholder="Image URL" required />
-        <button type="submit">Upload</button>
-      </form>
-    </div>
-    <div class="search-bar">
-      <h2>Search For Card</h2>
-      <input class="search" placeholder="Search..." />
-      <button class="searchBar">Search</button>
-    </div>
-    <div class="filter-buttons">
-      <button class="all">Show All</button>
+  <body>
+    <h1>My Pokemon!</h1>
+    <button class="btn">Change Mode</button>
+
+    <section class="sort">
+      <button class="all">All</button>
       <button class="have">My Pokemon</button>
       <button class="want">Want Pokemon</button>
+    </section>
+
+    <div class="search">
+      <input type="text" placeholder="Search..." />
+      <button class="searchBar">Search</button>
     </div>
 
-    <div class="container"></div>
+    <br />
+
+    <div class="upload-form">
+      <form id="upload">
+        <input type="text" id="cardname" placeholder="Card Name" />
+        <br />
+        <input type="text" id="cardcharacter" placeholder="Character" />
+        <br />
+        <input type="text" id="cardseries" placeholder="Series" />
+        <br />
+        <input type="text" id="cardorigin" placeholder="Origin" />
+        <br />
+        <input type="text" id="cardimg" placeholder="Image URL" />
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <section class="container"></section>
 
     <script type="module" src="/src/main.js"></script>
   </body>

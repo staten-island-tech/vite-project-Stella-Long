@@ -59,28 +59,25 @@ const pokemonCards = [
   },
 ];
 
-//cards
+// display cards
 function show(item) {
   const container = document.querySelector(".container");
   container.insertAdjacentHTML(
-    "beforeend",
-    `<div class="card" data-series = "${item.series}">
-        <img
-          class="img"
-          src="${item.img}"
-          alt="Pokemon Cards"
-        />
-        <h2 class="card_name">${item.name}</h2>
-        <h3 class="card_series">${item.series}</h3>
-        <h3 class="card_origin">${item.origin}</h3>
-
-        <button class = "haveBtn">My Pokemon</button>
-        <button class = "wantBtn">Want Pokemon</button>
+    "afterbegin",
+    `<div class="card">
+      <h2 class="card_name">${item.name}</h2>
+      <h3 class="card_character">${item.character}</h3>
+      <h4 class="card_series">${item.series}</h4>
+      <h4 class="card_origin">${item.origin}</h4>
+      <img class="img" src="${item.img}" alt="${item.name}" />
+      <button class="haveBtn">My Pokémon</button>
+      <button class="wantBtn">Want Pokémon</button>
     </div>`
   );
+
   const card = container.querySelector(".card");
   const haveButton = card.querySelector(".haveBtn");
-  const wantButton = card.querySelector(".wantBtn");
+  const wantButton = card.querySelector(".wantBth");
 
   haveButton.addEventListener("click", () => {
     card.classList.add("have-pokemon");
@@ -88,36 +85,35 @@ function show(item) {
   });
 
   wantButton.addEventListener("click", () => {
-    card.classList.add("have-pokemon");
-    card.classList.remove("want-pokemon");
+    card.classList.add("want-pokemon");
+    card.classList.remove("have-pokemon");
   });
 }
+
 pokemonCards.forEach((item) => show(item));
 
+// filtering cards
 function filter(input) {
   const cards = document.querySelectorAll(".card");
   const search = input.toLowerCase();
   cards.forEach((card) => {
-    const name = card.querySelector(".card_name").textContent.toLowerCase();
-    const series = card.querySelector(".card_series").textContent.toLowerCase();
-    const origin = card.querySelector(".card_origin").textContent.toLowerCase();
-    if (
-      name.includes(search) ||
-      series.includes(search) ||
-      origin.includes(search)
-    ) {
+    const name = card.querySelector(".card-header").textContent.toLowerCase();
+    const series = card.querySelector(".card-series").textContent.toLowerCase();
+    const origin = card.querySelector(".card-origin").textContent.toLowerCase();
+    if (name.includes(search) || series.includes(search) || origin.includes(search)) {
       card.style.display = "inline-block";
     } else {
       card.style.display = "none";
     }
   });
 }
+
 document.querySelector(".searchBar").addEventListener("click", () => {
   const input = document.querySelector(".search input").value;
   filter(input);
 });
 
-//upload
+// upload new card
 function upload(card) {
   card.preventDefault();
   const name = document.querySelector("#cardname").value;
@@ -133,18 +129,15 @@ function upload(card) {
     img: img,
   };
   show(newCard);
+  pokemonCards.push(newCard);
 }
+
 document.getElementById("upload").addEventListener("submit", upload);
 
-//dark and light mode
 document.querySelector(".btn").addEventListener("click", function () {
-  if (document.body.classList.contains("light")) {
-    document.body.classList.add("dark");
-    document.body.classList.remove("light");
-  } else {
-    document.body.classList.add("light");
-    document.body.classList.remove("dark");
-  }
+  const body = document.body;
+  body.classList.toggle("dark");
+  body.classList.toggle("light");
 });
 
 function all() {
