@@ -88,8 +88,8 @@ function show(item) {
   });
 
   wantButton.addEventListener("click", () => {
-    card.classList.add("have-pokemon");
-    card.classList.remove("want-pokemon");
+    card.classList.add("want-pokemon");
+    card.classList.remove("have-pokemon");
   });
 }
 pokemonCards.forEach((item) => show(item));
@@ -113,8 +113,14 @@ function filter(input) {
   });
 }
 document.querySelector(".searchBar").addEventListener("click", () => {
-  const input = document.querySelector(".search input").value;
+  const input = document.querySelector(".search").value;
   filter(input);
+});
+// can click enter and it will search
+document.querySelector(".search").addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    filter(e.target.value);
+  }
 });
 
 //upload

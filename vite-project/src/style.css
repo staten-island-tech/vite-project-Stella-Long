@@ -42,20 +42,20 @@ body {
   margin: 2.5rem auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: 4rem;
   justify-content: center;
 }
 
 .card {
-  width: 22%;
+  width: 25%;
   height: 700px;
   background-color: var(--secondary);
   color: var(--primary);
   border-radius: 20px;
 }
 
-h1 {
-  font-size: 10rem;
+.h1 {
+  font-size: 20rem;
   font-weight: 125;
   color: var(--secondary);
   text-align: center;
@@ -63,7 +63,7 @@ h1 {
 
 .img {
   width: 100%;
-  border-radius: 1.2rem;
+  border-radius: 20px;
 }
 
 .card_name {
@@ -90,22 +90,31 @@ h1 {
   text-align: center;
 }
 
-.btn {
-  padding: 0.7rem 1.4rem;
-  border-radius: 30px;
+button {
+  padding: 0.7rem;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
 
   background-color: var(--secondary);
   color: var(--primary);
   font-size: 1rem;
-  font-weight: 1;
   font-family: "Palette Mosaic", system-ui;
 }
 
-.btn:hover {
+button:hover {
   background-color: var(--primary);
   color: var(--secondary);
+}
+
+input {
+  border-radius: 10px;
+  font-family: "Palette Mosaic", system-ui;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  margin-bottom: 10px;
+  padding: 0.8rem;
 }
 
 .haveBtn {
@@ -139,15 +148,16 @@ h1 {
 }
 
 .search {
-  padding: 1rem;
+  padding: 0.8rem;
   font-size: 1rem;
+  border: none;
   border-radius: 8px;
   margin-right: 1rem;
   font-family: "Palette Mosaic", system-ui;
 }
 
 .searchBar {
-  padding: 1rem;
+  padding: 0.8rem;
   font-size: 1rem;
   border-radius: 8px;
   margin-right: 1rem;
