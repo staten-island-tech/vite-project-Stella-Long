@@ -65,19 +65,19 @@ function show(item) {
   container.insertAdjacentHTML(
     "afterbegin",
     `<div class="card">
+      <img class="img" src="${item.img}" alt="${item.name}" />
       <h2 class="card_name">${item.name}</h2>
-      <h3 class="card_character">${item.character}</h3>
+      <h4 class="card_character">${item.character}</h4>
       <h4 class="card_series">${item.series}</h4>
       <h4 class="card_origin">${item.origin}</h4>
-      <img class="img" src="${item.img}" alt="${item.name}" />
-      <button class="haveBtn">My Pokémon</button>
-      <button class="wantBtn">Want Pokémon</button>
+      <button class="haveBtn">My Pokemon</button>
+      <button class="wantBtn">Want Pokemon</button>
     </div>`
   );
 
   const card = container.querySelector(".card");
   const haveButton = card.querySelector(".haveBtn");
-  const wantButton = card.querySelector(".wantBth");
+  const wantButton = card.querySelector(".wantBtn");
 
   haveButton.addEventListener("click", () => {
     card.classList.add("have-pokemon");
@@ -97,10 +97,11 @@ function filter(input) {
   const cards = document.querySelectorAll(".card");
   const search = input.toLowerCase();
   cards.forEach((card) => {
-    const name = card.querySelector(".card-header").textContent.toLowerCase();
-    const series = card.querySelector(".card-series").textContent.toLowerCase();
-    const origin = card.querySelector(".card-origin").textContent.toLowerCase();
-    if (name.includes(search) || series.includes(search) || origin.includes(search)) {
+    const name = card.querySelector(".card_name").textContent.toLowerCase();
+    const character = card.querySelector(".card_character").textContent.toLowerCase();
+    const series = card.querySelector(".card_series").textContent.toLowerCase();
+    const origin = card.querySelector(".card_origin").textContent.toLowerCase();
+    if (name.includes(search) || character.includes(search) || series.includes(search) || origin.includes(search)) {
       card.style.display = "inline-block";
     } else {
       card.style.display = "none";
@@ -109,7 +110,7 @@ function filter(input) {
 }
 
 document.querySelector(".searchBar").addEventListener("click", () => {
-  const input = document.querySelector(".search input").value;
+  const input = document.querySelector(".searchBar input").value;
   filter(input);
 });
 
