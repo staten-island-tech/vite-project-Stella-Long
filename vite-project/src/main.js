@@ -67,7 +67,6 @@ function show(item) {
     `<div class="card">
       <img class="img" src="${item.img}" alt="${item.name}" />
       <h2 class="card_name">${item.name}</h2>
-      <h4 class="card_character">${item.character}</h4>
       <h4 class="card_series">${item.series}</h4>
       <h4 class="card_origin">${item.origin}</h4>
       <button class="haveBtn">My Pokemon</button>
@@ -98,7 +97,6 @@ function filter(input) {
   const search = input.toLowerCase();
   cards.forEach((card) => {
     const name = card.querySelector(".card_name").textContent.toLowerCase();
-    const character = card.querySelector(".card_character").textContent.toLowerCase();
     const series = card.querySelector(".card_series").textContent.toLowerCase();
     const origin = card.querySelector(".card_origin").textContent.toLowerCase();
     if (name.includes(search) || character.includes(search) || series.includes(search) || origin.includes(search)) {
