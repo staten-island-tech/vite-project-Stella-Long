@@ -88,18 +88,23 @@ function show(item) {
     card.classList.remove("have-pokemon");
   });
 }
-
 pokemonCards.forEach((item) => show(item));
 
 // filtering cards
 function filter(input) {
   const cards = document.querySelectorAll(".card");
   const search = input.toLowerCase();
+
   cards.forEach((card) => {
     const name = card.querySelector(".card_name").textContent.toLowerCase();
     const series = card.querySelector(".card_series").textContent.toLowerCase();
     const origin = card.querySelector(".card_origin").textContent.toLowerCase();
-    if (name.includes(search) || character.includes(search) || series.includes(search) || origin.includes(search)) {
+
+    if (
+      name.includes(search) ||
+      series.includes(search) ||
+      origin.includes(search)
+    ) {
       card.style.display = "inline-block";
     } else {
       card.style.display = "none";
@@ -107,22 +112,28 @@ function filter(input) {
   });
 }
 
+const searchInput = document.querySelector(".search input");
+
 document.querySelector(".searchBar").addEventListener("click", () => {
-  const input = document.querySelector(".searchBar input").value;
-  filter(input);
+  filter(searchInput.value);
+});
+
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault(); //stops page from resfreshing
+    filter(searchInput.value);
+  }
 });
 
 // upload new card
 function upload(card) {
   card.preventDefault();
   const name = document.querySelector("#cardname").value;
-  const character = document.querySelector("#cardcharacter").value;
   const series = document.querySelector("#cardseries").value;
   const origin = document.querySelector("#cardorigin").value;
   const img = document.querySelector("#cardimg").value;
   const newCard = {
     name: name,
-    character: character,
     series: series,
     origin: origin,
     img: img,

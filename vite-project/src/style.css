@@ -1,8 +1,8 @@
-:root {
-  --light-white: #fffdfd;
-  --dark-white: #e9e5e5;
-  --light-black: #353232;
-  --dark-black: #242424;
+:root { 
+  --light-white: #fdfcf9;
+  --dark-white: #f0ede9;
+  --light-black: #202020;
+  --dark-black: #161616;
 
 
   --primary: var(--dark-white);
@@ -70,6 +70,11 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-size: 2.5rem;
+  font-weight: 125;
+  color: var(--secondary);
+}
 
 .img {
   width: 100%;
@@ -105,32 +110,46 @@ h1 {
   text-align: center;
 }
 
-
-.btn {
-  padding: 0.7rem 1.4rem;
-  border-radius: 30px;
+button {
+  padding: 0.8rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
   border: none;
   cursor: pointer;
 
 
   background-color: var(--secondary);
   color: var(--primary);
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 1;
   font-family: "Palette Mosaic", system-ui;
 }
 
 
-.btn:hover {
+button:hover {
   background-color: var(--primary);
   color: var(--secondary);
 }
 
+input {
+  padding: 0.8rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-family: "Palette Mosaic", system-ui;
+}
 
-.haveBtn {
+.haveBtn,
+.wantBtn {
   background-color: var(--secondary);
   font-family: "Palette Mosaic", system-ui;
   border-radius: 5px;
+  display: block;
+  margin: 6px auto;
 }
 
 
@@ -139,14 +158,6 @@ h1 {
   color: var(--secondary);
 }
 
-
-.wantBtn {
-  background-color: var(--secondary);
-  font-family: "Palette Mosaic", system-ui;
-  border-radius: 5px;
-}
-
-
 .wantBtn:hover {
   background-color: var(--primary);
   color: var(--secondary);
@@ -154,7 +165,7 @@ h1 {
 
 
 h1 {
-  font-size: 4rem;
+  font-size: 8rem;
   font-weight: 125;
   color: var(--secondary);
   text-align: center;
@@ -163,18 +174,30 @@ h1 {
 
 
 .search {
-  padding: 1rem;
+  padding: 0.5rem;
   font-size: 1rem;
   border-radius: 8px;
-  margin-right: 1rem;
   font-family: "Palette Mosaic", system-ui;
 }
 
 
 .searchBar {
-  padding: 1rem;
+  padding: 0.8rem;
   font-size: 1rem;
   border-radius: 8px;
-  margin-right: 1rem;
   font-family: "Palette Mosaic", system-ui;
 }
+
+::placeholder {
+  color: var(---primary)
+  opacity: 0.6;
+  font-family: "Palette Mosaic", system-ui;
+}
+
+.sort {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+

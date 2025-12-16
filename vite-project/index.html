@@ -12,27 +12,28 @@
     <title>My Pokemon</title>
   </head>
   <body>
-    <h1>My Pokemon!</h1>
     <button class="btn">Change Mode</button>
+    
+    <div class="search">
+      <h2>Search For Pokemon Here:</h2>
+      <input type="text" placeholder="Search..." />
+      <button class="searchBar">Search</button>
+    </div>
 
+    <h1>My Pokemon!</h1>
+    
     <section class="sort">
       <button class="all">All</button>
       <button class="have">My Pokemon</button>
       <button class="want">Want Pokemon</button>
     </section>
 
-    <div class="search">
-      <input type="text" placeholder="Search..." />
-      <button class="searchBar">Search</button>
-    </div>
-
-    <br />
+    <section class="container"></section>
 
     <div class="upload-form">
+      <h2>Upload Pokemon Here:</h2>
       <form id="upload">
         <input type="text" id="cardname" placeholder="Card Name" />
-        <br />
-        <input type="text" id="cardcharacter" placeholder="Character" />
         <br />
         <input type="text" id="cardseries" placeholder="Series" />
         <br />
@@ -43,8 +44,6 @@
         <button type="submit">Submit</button>
       </form>
     </div>
-
-    <section class="container"></section>
 
     <script type="module" src="/src/main.js"></script>
   </body>
