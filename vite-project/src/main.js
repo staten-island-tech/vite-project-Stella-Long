@@ -59,25 +59,21 @@ const pokemonCards = [
   },
 ];
 
-//cards
+// display cards
 function show(item) {
   const container = document.querySelector(".container");
   container.insertAdjacentHTML(
-    "beforeend",
-    `<div class="card" data-series = "${item.series}">
-        <img
-          class="img"
-          src="${item.img}"
-          alt="Pokemon Cards"
-        />
-        <h2 class="card_name">${item.name}</h2>
-        <h3 class="card_series">${item.series}</h3>
-        <h3 class="card_origin">${item.origin}</h3>
-
-        <button class = "haveBtn">My Pokemon</button>
-        <button class = "wantBtn">Want Pokemon</button>
+    "afterbegin",
+    `<div class="card">
+      <img class="img" src="${item.img}" alt="${item.name}" />
+      <h2 class="card_name">${item.name}</h2>
+      <h4 class="card_series">${item.series}</h4>
+      <h4 class="card_origin">${item.origin}</h4>
+      <button class="haveBtn">My Pokemon</button>
+      <button class="wantBtn">Want Pokemon</button>
     </div>`
   );
+
   const card = container.querySelector(".card");
   const haveButton = card.querySelector(".haveBtn");
   const wantButton = card.querySelector(".wantBtn");
@@ -94,13 +90,16 @@ function show(item) {
 }
 pokemonCards.forEach((item) => show(item));
 
+// filtering cards
 function filter(input) {
   const cards = document.querySelectorAll(".card");
   const search = input.toLowerCase();
+
   cards.forEach((card) => {
     const name = card.querySelector(".card_name").textContent.toLowerCase();
     const series = card.querySelector(".card_series").textContent.toLowerCase();
     const origin = card.querySelector(".card_origin").textContent.toLowerCase();
+
     if (
       name.includes(search) ||
       series.includes(search) ||
@@ -112,9 +111,11 @@ function filter(input) {
     }
   });
 }
+
+const searchInput = document.querySelector(".search input");
+
 document.querySelector(".searchBar").addEventListener("click", () => {
-  const input = document.querySelector(".search").value;
-  filter(input);
+  filter(searchInput.value);
 });
 // can click enter and it will search
 document.querySelector(".search").addEventListener("keyup", (e) => {
@@ -123,34 +124,36 @@ document.querySelector(".search").addEventListener("keyup", (e) => {
   }
 });
 
-//upload
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault(); //stops page from resfreshing
+    filter(searchInput.value);
+  }
+});
+
+// upload new card
 function upload(card) {
   card.preventDefault();
   const name = document.querySelector("#cardname").value;
-  const character = document.querySelector("#cardcharacter").value;
   const series = document.querySelector("#cardseries").value;
   const origin = document.querySelector("#cardorigin").value;
   const img = document.querySelector("#cardimg").value;
   const newCard = {
     name: name,
-    character: character,
     series: series,
     origin: origin,
     img: img,
   };
   show(newCard);
+  pokemonCards.push(newCard);
 }
+
 document.getElementById("upload").addEventListener("submit", upload);
 
-//dark and light mode
 document.querySelector(".btn").addEventListener("click", function () {
-  if (document.body.classList.contains("light")) {
-    document.body.classList.add("dark");
-    document.body.classList.remove("light");
-  } else {
-    document.body.classList.add("light");
-    document.body.classList.remove("dark");
-  }
+  const body = document.body;
+  body.classList.toggle("dark");
+  body.classList.toggle("light");
 });
 
 function all() {
